@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dir=`pwd`
+dir=../..
 
 cd scsi_src/python
 # Chang name of cvar object for global variables to gv.
@@ -17,6 +17,6 @@ mkdir -p config
 libtoolize
 
 ./bootstrap
-./configure --prefix=$dir/scsi_src
+./configure --prefix=$dir
 
 make install

@@ -1,11 +1,13 @@
 #!/bin/sh
 
-dir=../..
+dir="`pwd`/../.."
+
+ls $dir
 
 cd scsi_src/python
 # Chang name of cvar object for global variables to gv.
 swig -c++ -python -globals gv pyscsi.i
-cd $dir
+cd ../..
 
 # Remove autoconf cashe.
 rm -rf autom4te.cache
@@ -20,3 +22,5 @@ libtoolize
 ./configure --prefix=$dir
 
 make install
+
+cp -r share/* $dir/share
